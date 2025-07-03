@@ -25,7 +25,7 @@
             --transition: all 0.3s ease;
         }
         
-        * {
+        *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -44,8 +44,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             flex-direction: column;
@@ -53,6 +53,10 @@
             align-items: center;
             z-index: 9999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
+            padding: 1rem;
+            box-sizing: border-box;
+            /* Ensure no scrollbars */
+            overflow: hidden;
         }
         
         .loading-screen.hidden {
@@ -67,6 +71,7 @@
             font-family: 'Montserrat', sans-serif;
             margin-bottom: 2rem;
             animation: fadeInUp 0.5s ease;
+                text-align: center;
         }
         
         .loading-spinner {
@@ -76,6 +81,9 @@
             border-top: 4px solid var(--accent);
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            /* Center the spinner */
+            flex-shrink: 0;
+            
         }
         
         .loading-text {
@@ -84,6 +92,12 @@
             font-size: 1.1rem;
             opacity: 0.9;
             animation: fadeInUp 0.5s ease 0.1s both;
+            /* Perfect centering */
+            text-align: center;
+            width: 100%;
+            max-width: 90vw;
+            box-sizing: border-box;
+            padding: 0 1rem;
         }
         
         @keyframes spin {
@@ -655,7 +669,7 @@
             transform: translateY(0);
         }
         
-        /* Responsive Design */
+        /* Enhanced Mobile Responsive Design */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -690,6 +704,20 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .loading-logo {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                /* Ensure perfect centering on tablets */
+                max-width: 85vw;
+                padding: 0 1rem;
+            }
+            
+            .loading-text {
+                font-size: 1rem;
+                margin-top: 1rem;
+                max-width: 85vw;
+            }
         }
         
         @media (max-width: 480px) {
@@ -720,6 +748,72 @@
             .play-button {
                 width: 50px;
                 height: 50px;
+            }
+            
+            .loading-logo {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                /* Perfect mobile centering */
+                max-width: 80vw;
+                padding: 0 1.5rem;
+                /* Responsive font size */
+                font-size: clamp(1.5rem, 5vw, 1.8rem);
+            }
+            
+            .loading-text {
+                font-size: 0.9rem;
+                margin-top: 0.8rem;
+                max-width: 80vw;
+                /* Responsive font size */
+                font-size: clamp(0.8rem, 3vw, 0.9rem);
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .loading-logo {
+                font-size: clamp(1.2rem, 6vw, 1.5rem);
+                margin-bottom: 0.8rem;
+                max-width: 75vw;
+                padding: 0 1rem;
+            }
+            
+            .loading-text {
+                font-size: clamp(0.7rem, 4vw, 0.8rem);
+                margin-top: 0.6rem;
+                max-width: 75vw;
+            }
+        }
+        
+        /* Landscape orientation - keep centered */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .loading-screen {
+                padding: 0.5rem;
+            }
+            
+            .loading-logo {
+                font-size: clamp(1rem, 4vh, 1.5rem);
+                margin-bottom: 0.5rem;
+                max-width: 70vw;
+            }
+            
+            .loading-text {
+                font-size: clamp(0.6rem, 2.5vh, 0.8rem);
+                margin-top: 0.5rem;
+                max-width: 70vw;
+            }
+        }
+        
+        /* Extra safety for very small screens */
+        @media (max-width: 280px) {
+            .loading-logo {
+                font-size: 1.2rem;
+                max-width: 70vw;
+                word-break: break-word;
+            }
+            
+            .loading-text {
+                font-size: 0.7rem;
+                max-width: 70vw;
             }
         }
     </style>
@@ -958,7 +1052,7 @@
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.getElementById('loadingScreen').classList.add('hidden');
-            }, 800); // Reduced from default to 800ms
+            }, 1500); // Increased to 1500ms for better user experience
         });
         
         // Mobile menu toggle
