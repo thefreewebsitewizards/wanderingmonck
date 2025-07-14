@@ -45,29 +45,19 @@
     </header>
     
     <!-- Hero Section -->
-<section class="hero" id="home">
-    <!-- Video Background Layer -->
-    <div class="hero-background">
-        <video id="heroVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-            <source src="./images/9.mp4" type="video/mp4">
-            <!-- Fallback image if video doesn't load -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.4)), url('./images/4.jpg') no-repeat center center/cover;"></div>
-        </video>
-        <!-- Gradient overlay -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)); z-index: 0;"></div>
+    <section class="hero" id="home">
+        <!-- Background Image Layer -->
+        <div class="hero-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/4.jpg') no-repeat center center/cover; transform: scaleX(-1); z-index: -1;"></div>
         
-
-    </div>
-    
-    <!-- Text Content Layer -->
-    <div class="container">
-        <div class="hero-content fade-in">
-            <h1>Wild Camping Adventures & Outdoor Therapy</h1>
-            <p>Join me on expeditions into the wilderness where nature becomes the ultimate therapist. Because <span class="hashtag">#ItsOkayNotToBeOkay</span>, and sometimes the best medicine is fresh air and open skies.</p>
-            <a href="#about" class="btn btn-accent">Explore Adventures</a>
+        <!-- Text Content Layer -->
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Wild Camping Adventures & Outdoor Therapy</h1>
+                <p>Join me on expeditions into the wilderness where nature becomes the ultimate therapist. Because <span class="hashtag">#ItsOkayNotToBeOkay</span>, and sometimes the best medicine is fresh air and open skies.</p>
+                <a href="#about" class="btn btn-accent">Explore Adventures</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- About Section -->
